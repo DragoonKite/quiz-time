@@ -18,8 +18,27 @@ function startQuiz(event){
         }
     },1000)
 
+    runquiz();
 
+}
 
+function runquiz(){
+    startButton.remove();
+    document.querySelector("#intro").textContent = " ";
+    var options = document.createElement("ul");
+    options.className = "answer-options";
+
+    for(var i=0; i<questions.length;i++){
+        var question = questions[i].q;
+        document.querySelector("h1").textContent = question;
+        var answers = [questions[i].a1, questions[i].a2, questions[i].a3, questions[i].a4]
+        for(var x=0; x<answers.length; x++){
+            var option = document.createElement("li");
+            option.innerHTML = "<button class='btn'>" + answers[x] +"</button>";
+            options.appendChild(option);
+        }
+        quizArea.appendChild(options);
+    }
 }
 
 
