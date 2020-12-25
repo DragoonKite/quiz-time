@@ -1,0 +1,28 @@
+header div{
+    display: flex;
+    justify-content: space-between;
+}
+
+main{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+main p{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+.btn{
+    padding: 10px;
+    margin: 20px;
+    background-color: purple;
+    color: gainsboro;
+    border-radius: 15%;
+}
+
+a{
+    text-decoration: none;
+}
