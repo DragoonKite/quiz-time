@@ -34,7 +34,7 @@ function runquiz(){
         var answers = [questions[i].a1, questions[i].a2, questions[i].a3, questions[i].a4]
         for(var x=0; x<answers.length; x++){
             var option = document.createElement("li");
-            option.innerHTML = "<button class='btn'>" + answers[x] +"</button>";
+            option.innerHTML = "<button class='btn answer-option'>" + answers[x] +"</button>";
             options.appendChild(option);
         }
         quizArea.appendChild(options);
