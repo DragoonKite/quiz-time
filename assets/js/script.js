@@ -1,12 +1,12 @@
 var score = 0;
 var timer = 90;
 //Array to store quesions and answer options
-var questions = [{q:"Question1" , a1:"Answer 1", a2:"Answer 2", a3:"Answer 3", a4:"Answer 4"},
-{q:"Question2" , a1:"Answer 1", a2:"Answer 2", a3:"Answer 3", a4:"Answer 4"},
-{q:"Question3" , a1:"Answer 1", a2:"Answer 2", a3:"Answer 3", a4:"Answer 4"},
-{q:"Question4" , a1:"Answer 1", a2:"Answer 2", a3:"Answer 3", a4:"Answer 4"}];
+var questions = [{q:"Which method could you use to convert data to a string before saving to local storage?" , a1:"1. JSON.stringify()", a2:"2. json.stringify()", a3:"3. JSON.Stringify()", a4:"4. json.Stringify()"},
+{q:"Which character pair is used to declare a variable is an array?" , a1:"1. {}", a2:"2. []", a3:"3. ()", a4:"4. ''"},
+{q:"Which is not a way to iterate over an object?" , a1:"1. for()", a2:"2. while()", a3:"3. if()", a4:"4. do{}while()"},
+{q:"Which is not a comparison operator?" , a1:"1. ==", a2:"2. ===", a3:"3. &&", a4:"4. +"}];
 //array to store correct answers
-var answerKey = [];
+var answerKey = ["0", "1", "2", "3"];
 
 //selects main area of page to manipulate later to display questions/answers
 var quizArea = document.querySelector("main")
@@ -85,6 +85,7 @@ function getSelectedAnswer(event){
 function checkAnswer(q,a){
     if (a === answerKey[q]){
         score += 10;
+        console.log(score);
     }
     else{
         timer -= 10;
