@@ -90,7 +90,12 @@ function checkAnswer(q,a){
         timer -= 10;
     }
     questionIterator ++;
-    displayQuestion(questionIterator);
+    if(questionIterator < questions.length){
+        displayQuestion(questionIterator)
+    }
+    else{
+        window.location.href = "./assets/pages/save-score.html";
+    }
 }
 
 startButton.addEventListener("click", startQuiz);
