@@ -17,6 +17,8 @@ var startButton = document.querySelector(".start-btn");
 //create an unordered list element to later store answer options
 var options = document.createElement("ul");
 options.className = "answer-options";
+//used to iterate over questions one at a time
+var questionIterator = 0;
 
 //starts timer and then calls the main quiz function
 function startQuiz(event){
@@ -44,7 +46,6 @@ function runquiz(){
     document.querySelector("#intro").remove();
 
     //iterate over questions array
-    questionIterator = 0;
     displayQuestion(questionIterator);    
 };
 
@@ -54,13 +55,15 @@ function displayQuestion(i){
     var question = questions[i].q;
     //displays question inplace of "Welcome to Quiz Time"
     document.querySelector("h1").textContent = question;
+    //sets id of question in array to be chacked agaisnt later
+    options.setAttribute("question-id", i)
     //store anser choices to iterate over
     var answers = [questions[i].a1, questions[i].a2, questions[i].a3, questions[i].a4]
     //iterate over answer choices
     for(var x=0; x<answers.length; x++){
         //turn answer choices into buttons within list elements
         var option = document.createElement("li");
-        option.innerHTML = "<button class='btn answer-option' id='" + i +"'>" + answers[x] +"</button>";
+        option.innerHTML = "<button class='btn answer-option' id='" + x +"'>" + answers[x] +"</button>";
         //add list elements to unordered list
         options.appendChild(option);
     }
@@ -68,4 +71,27 @@ function displayQuestion(i){
     quizArea.appendChild(options);      
 };
 
+function getSelectedAnswer(event){
+    var targetAnswer = event.target;
+
+    //check if it was an answer option
+    if (targetAnswer.matches(".answer-option")){
+        answerId = targetAnswer.getAttribute("id")
+    };
+    checkAnswer(questionIterator, answerId);
+
+};
+
+function checkAnswer(q,a){
+    if (a === answerKey[q]){
+        score += 10;
+    }
+    else{
+        timer -= 10;
+    }
+    questionIterator ++;
+    displayQuestion(questionIterator);
+}
+
 startButton.addEventListener("click", startQuiz);
+options.addEventListener("click", getSelectedAnswer)
