@@ -95,6 +95,7 @@ function checkAnswer(q,a){
         displayQuestion(questionIterator)
     }
     else{
+        localStorage.setItem("newScore", score)
         window.location.href = "./assets/pages/save-score.html";
     }
 }
