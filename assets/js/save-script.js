@@ -8,6 +8,7 @@ else{
     var highScores = JSON.parse(localStorage.getItem("highScores"))
 };
 
+//displays most recent score to the user
 document.querySelector("main p").innerHTML += newScore;
 
 

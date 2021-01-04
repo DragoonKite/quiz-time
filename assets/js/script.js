@@ -91,10 +91,11 @@ function getSelectedAnswer(event){
 
 function checkAnswer(q,a){
     if (a === answerKey[q]){
+        //increase score on correct answer
         score += 10;
-        console.log(score);
     }
     else{
+        //decrease score on incorrect answer
         timer -= 10;
     }
     questionIterator ++;
@@ -102,6 +103,7 @@ function checkAnswer(q,a){
         displayQuestion(questionIterator)
     }
     else{
+        //saves score and moves to the next page after the last question is answered
         localStorage.setItem("newScore", score)
         window.location.href = "./assets/pages/save-score.html";
     }
