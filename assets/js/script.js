@@ -34,6 +34,8 @@ function startQuiz(event){
 
             //alert user that time is up
             window.alert("Sorry, your time is up!");
+            //save current score
+            localStorage.setItem("newScore", score)
             //send user to the save score page
             window.location.href="./assets/pages/save-score.html";
         }
