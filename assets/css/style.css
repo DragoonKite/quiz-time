@@ -23,6 +23,11 @@ main p{
     border-radius: 15%;
 }
 
+.btn:hover{
+    background-color: rgb(218, 65, 91);
+    color: lime;
+}
+
 .answer-option{
     margin: 0;
 }

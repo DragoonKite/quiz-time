@@ -8,7 +8,7 @@ else{
     var highScores = JSON.parse(localStorage.getItem("highScores"))
 };
 
-
+document.querySelector("main p").innerHTML += newScore;
 
 
 function saveScore(event){
