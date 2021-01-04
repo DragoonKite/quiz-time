@@ -4,6 +4,7 @@ var scoreDisplay = document.querySelector("ol")
 
 
 if(localStorage.getItem("highScores")=== null){
+    //return user to start if no scores to view
     window.alert("No current high scores. Take the quiz first!");
     window.location.href="../../index.html"
 }
