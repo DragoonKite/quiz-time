@@ -31,6 +31,11 @@ function startQuiz(event){
         else{
             clearInterval(timerCountdown);
             timerCounter.textContent = "Time Remaining: " + 0;
+
+            //alert user that time is up
+            window.alert("Sorry, your time is up!");
+            //send user to the save score page
+            window.location.href="./assets/pages/save-score.html";
         }
     },1000)
 
