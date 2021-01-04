@@ -8,6 +8,10 @@ if(localStorage.getItem("highScores")=== null){
 }
 else{
     var highScores = JSON.parse(localStorage.getItem("highScores"))
+    //sort highscores in descending order
+    highScores.sort(function(a,b){
+        return b.score-a.score;
+    });
     displayScores(highScores)
 };
 
@@ -23,7 +27,10 @@ function displayScores(scores){
 };
 
 function clearScores(event){
-    localStorage.removeItem("highScores")
+    localStorage.removeItem("highScores");
+    scoreDisplay.remove();
+    window.alert("Scores cleared, returning to the main page");
+    window.location.href="../../index.html";
 };
 
 returnBtn.addEventListener("click", function(){
